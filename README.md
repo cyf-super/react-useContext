@@ -2,7 +2,7 @@
 
 json-server起一个最最简单的服务，用来响应登录和注册的
 
-!['login']('./public/login.gif')
+![login](./public/login.gif)
 
 ## 使用
 ```

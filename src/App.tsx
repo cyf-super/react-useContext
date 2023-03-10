@@ -1,15 +1,12 @@
-import { useState } from 'react'
 import './App.css'
 import { LoginScreen } from './pages/login'
+import { useAuth } from './context'
+import { UserMessage } from './pages/user'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { user } = useAuth?.() || {}
 
-  return (
-    <div className="App">
-      <LoginScreen></LoginScreen>
-    </div>
-  )
+  return <div className="App">{user?.username ? <UserMessage /> : <LoginScreen />}</div>
 }
 
 export default App

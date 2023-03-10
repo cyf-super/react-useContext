@@ -6,10 +6,11 @@ const userInfo = {
 module.exports = (req, res, next) => {
   if (req.method === 'POST' && req.path === '/login') {
     const { username, password } = req.body
-    if (username && username === userInfo.username && password && password === userInfo.password) {
+    if (username === userInfo.username && password === userInfo.password) {
       res.status(200).json({
 				...userInfo,
-				token: `token==${new Date().getTime()}`
+				token: `token==${new Date().getTime()}`,
+				message: '追风赶月莫停留，平芜尽处是春山！'
 			})
     } else {
       res.status(401).json({
@@ -22,7 +23,7 @@ module.exports = (req, res, next) => {
       userInfo.username = username
 			userInfo.password = password
       res.status(200).json({
-				...userInfo,
+				message: '注册账号成功',
 				token: `token==${new Date().getTime()}`
 			})
     } else {
